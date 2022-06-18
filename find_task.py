@@ -8,6 +8,6 @@ def to_find(t):
         else: 
             tras = input('задача не найдена, попробробовать еще раз? 1 - да, любой другой символ - отмена: ')
             if tras == '1': to_find(t)
-            else: return
+            else: return None
         id += 1
     return find_id
