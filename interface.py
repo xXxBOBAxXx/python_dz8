@@ -9,8 +9,10 @@ def run_program():
     to_end = False
     while not to_end:
         command = input('выберите команду: 1 - посмотреть задачи, 2 - изменить задачи, 3 - добавить задачи, или другие символы - для выхода: ')
-        if command == '1': print_all(t)
-        elif command == '2':
+        if command == '1': 
+            print_all(t)
+            run_program()
+        if command == '2':
             find_id = to_find(t)
             if find_id == None: run_program()
             if len(find_id) > 1: 
@@ -19,6 +21,8 @@ def run_program():
             if len(find_id) == 1: id = find_id
             command = input('выберете команду: 1 - отметить задачу выполненной, 2 - удалить задачу, или другие символы - для отмены: ')
             if command == '1' or '2': to_del(t, id, command)
-            else: run_program()
-        elif command == '3': to_tasks()
+            run_program()
+        if command == '3': 
+            to_tasks()
+            run_program()
         else: to_end = True
