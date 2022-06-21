@@ -11,18 +11,21 @@ def run_program():
         command = input('выберите команду: 1 - посмотреть задачи, 2 - изменить задачи, 3 - добавить задачи, или другие символы - для выхода: ')
         if command == '1': 
             print_all(t)
-            run_program()
+            continue
         if command == '2':
             find_id = to_find(t)
-            if find_id == None: run_program()
+            if find_id == None: continue
             if len(find_id) > 1: 
                 id = to_select(t, find_id)
-                if id == None: run_program()
+                if id == None: continue
             if len(find_id) == 1: id = find_id
             command = input('выберете команду: 1 - отметить задачу выполненной, 2 - удалить задачу, или другие символы - для отмены: ')
             if command == '1' or '2': to_del(t, id, command)
-            run_program()
+            if command == '1': print('задача отмеченна выполненой')
+            if command == '2': print('задача удалена')
+            continue
         if command == '3': 
             to_tasks()
-            run_program()
+            print('добавлена новая задача')
+            continue
         else: to_end = True
