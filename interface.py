@@ -1,4 +1,4 @@
-from from_tasks import t
+from from_tasks import read_tasks
 from print_tasks import print_all
 from print_tasks import print_task
 from new_task import to_tasks
@@ -9,6 +9,7 @@ from del_task import to_del
 def run_program():
     to_end = False
     while not to_end:
+        t = read_tasks()
         command = input('выберите команду: 1 - посмотреть задачи, 2 - изменить задачи, 3 - добавить задачи, или другие символы - для выхода: ')
         if command == '1': 
             print_all(t)
